@@ -26,6 +26,17 @@ public class WebRTCConf {
 
         FirefoxProfile firefoxProfile = new FirefoxProfile();
         firefoxProfile.setPreference("media.navigator.streams.fake", true);
+        //firefoxProfile.setPreference("browser.download.folderList", 1);
+        // firefoxProfile.setPreference("browser.download.manager.showWhenStarting", false);
+        // firefoxProfile.setPreference("browser.download.manager.focusWhenStarting", false);
+        // firefoxProfile.setPreference("browser.download.useDownloadDir", true);
+        // firefoxProfile.setPreference("browser.helperApps.alwaysAsk.force", false);
+        // //firefoxProfile.setPreference("browser.download.manager.alertOnEXEOpen", false);
+        // firefoxProfile.setPreference("browser.download.manager.closeWhenDone", true);
+        // firefoxProfile.setPreference("browser.download.manager.showAlertOnComplete", false);
+        // firefoxProfile.setPreference("browser.download.manager.useWindow", false);
+        // You will need to find the content-type of your app and set it here.
+        // firefoxProfile.setPreference("browser.helperApps.neverAsk.saveToDisk", "application/octet-stream");
         FirefoxOptions options = new FirefoxOptions();
         options.setProfile(firefoxProfile);
         options.setCapability("media.navigator.streams.fake", true);
@@ -38,13 +49,24 @@ public class WebRTCConf {
         options.setCapability("browserstack.idleTimeout", 300);
         options.setCapability("browserstack.user", System.getenv("BROWSERSTACK_USERNAME"));
         options.setCapability("browserstack.key", System.getenv("BROWSERSTACK_ACCESS_KEY"));
+        options.setCapability("browserstack.local", "true");
+        options.setCapability("acceptSslCerts" , "true");
+        
 
         return options;
     }
 
     public static MutableCapabilities getChromeConfiguration() {
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--use-fake-device-for-media-stream", "--use-fake-ui-for-media-stream");
+        options.addArguments(
+            "--use-fake-device-for-media-stream"
+            , "--use-fake-ui-for-media-stream"
+            //, "--use-file-for-fake-video-capture=/Users/samiran/Downloads/sample_960x400_ocean_with_audio.mjpeg"
+            , "--use-file-for-fake-video-capture=C:\\Users\\hello\\Documents\\video\\sample_mjpeg.mjpeg"
+            //, "--use-file-for-fake-video-capture=C:\\Users\\hello\\Downloads\\sample_960x400_ocean_with_audio.mjpeg"
+            //, "--use-file-for-fake-audio-capture=C:\\Users\\hello\\Documents\\video\\saper.avi"
+            );
+
         options.setCapability("browser", "Chrome");
         options.setCapability("browser_version", "latest");
         options.setCapability("os", "Windows");
@@ -54,6 +76,8 @@ public class WebRTCConf {
         options.setCapability("browserstack.idleTimeout", 300);
         options.setCapability("browserstack.user", System.getenv("BROWSERSTACK_USERNAME"));
         options.setCapability("browserstack.key", System.getenv("BROWSERSTACK_ACCESS_KEY"));
+        options.setCapability("browserstack.local", "true");
+        options.setCapability("acceptSslCerts" , "true");
 
         return options;
     }
@@ -72,6 +96,8 @@ public class WebRTCConf {
         options.setCapability("browserstack.idleTimeout", 300);
         options.setCapability("browserstack.user", System.getenv("BROWSERSTACK_USERNAME"));
         options.setCapability("browserstack.key", System.getenv("BROWSERSTACK_ACCESS_KEY"));
+        options.setCapability("browserstack.local", "true");
+        options.setCapability("acceptSslCerts" , "true");
 
         return options;
     }
@@ -90,6 +116,8 @@ public class WebRTCConf {
         options.setCapability("browserstack.idleTimeout", 300);
         options.setCapability("browserstack.user", System.getenv("BROWSERSTACK_USERNAME"));
         options.setCapability("browserstack.key", System.getenv("BROWSERSTACK_ACCESS_KEY"));
+        options.setCapability("browserstack.local", "true");
+        options.setCapability("acceptSslCerts" , "true");
 
         return options;
     }
@@ -108,6 +136,8 @@ public class WebRTCConf {
         options.setCapability("browserstack.idleTimeout", 300);
         options.setCapability("browserstack.user", System.getenv("BROWSERSTACK_USERNAME"));
         options.setCapability("browserstack.key", System.getenv("BROWSERSTACK_ACCESS_KEY"));
+        options.setCapability("browserstack.local", "true");
+        options.setCapability("acceptSslCerts" , "true");
 
         return options;
     }
@@ -127,6 +157,8 @@ public class WebRTCConf {
         options.setCapability("browserstack.idleTimeout", 300);
         options.setCapability("browserstack.user", System.getenv("BROWSERSTACK_USERNAME"));
         options.setCapability("browserstack.key", System.getenv("BROWSERSTACK_ACCESS_KEY"));
+        options.setCapability("browserstack.local", "true");
+        options.setCapability("acceptSslCerts" , "true");
 
         return options;
     }
@@ -170,18 +202,18 @@ public class WebRTCConf {
                 // Creating capabilities for Chrome Browser.
                 MutableCapabilities chromeConfiguration = getChromeConfiguration();
                 // Creating capabilities for FireFox Browser.
-                MutableCapabilities fireFoxConfiguration = getFireFoxConfiguration();
+                //MutableCapabilities fireFoxConfiguration = getFireFoxConfiguration();
 
                 // Creating the WebRTC Room on Chrome Browser.
                 System.out.println("Creating a Room on Chrome Browser");
-                createRoom(chromeConfiguration, roomId, false, 30000, userSelection);
+                createRoom(chromeConfiguration, roomId, false, 80000, userSelection);
 
                 // Waiting for other user to join the above created WebRTC room.
                 Thread.sleep(15000);
 
-                // Joining the above created Room on FireFox Browser.
+                // Joining the above created Room on Chrome Browser.
                 System.out.println("Joining the Room on Firefox Browser");
-                joinRoom(fireFoxConfiguration, roomId, true, 20000, userSelection);
+                joinRoom(chromeConfiguration, roomId, true, 80000, userSelection);
 
                 break;
 
@@ -196,7 +228,7 @@ public class WebRTCConf {
                 createRoom(edgeConfiguration, roomId, false, 30000, userSelection);
 
                 // Waiting for other user to join the above created WebRTC room.
-                Thread.sleep(15000);
+                Thread.sleep(35000);
 
                 // Joining the above created Room on Safari Browser.
                 System.out.println("Joining the Room on Safari Browser");
@@ -215,7 +247,7 @@ public class WebRTCConf {
                 createRoom(AndroidConfiguration, roomId, false, 30000, userSelection);
 
                 // Waiting for other user to join the above created WebRTC room.
-                Thread.sleep(15000);
+                Thread.sleep(35000);
 
                 // Joining the above created Room on iOS Mobile Browser.
                 System.out.println("Joining the Room on iOS Mobile Browser");
