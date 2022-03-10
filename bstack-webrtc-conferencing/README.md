@@ -1,9 +1,6 @@
-<p>
-  <img src="https://www.browserstack.com/images/static/header-logo.jpg" width="200" align="left" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WebRTC Testing
-  <img src="https://www.gstatic.com/devrel-devsite/prod/v328e217e4b751c25f062fe5c7682def5a7a55ca15e8bc2c276cdea0c86a8ee13/webrtc/images/lockup.svg" width="120" align="right" /> 
-</p>
+![Logo](https://www.browserstack.com/images/static/header-logo.jpg)
 
----
+# <h1 align="center"> :zap: BrowserStack <a href="https://webrtc.org/getting-started/testing"> <img src="https://www.gstatic.com/devrel-devsite/prod/v328e217e4b751c25f062fe5c7682def5a7a55ca15e8bc2c276cdea0c86a8ee13/webrtc/images/lockup.svg"  width="125"/> </a> Conference Testing :zap:</h1>
 
 This repository showcases automated testing of WebRTC-based web application on both Desktop and Mobile Browsers by executing the tests on Browserstack.
 
@@ -29,17 +26,17 @@ mvn install -DskipTests
 
 This repository showcases running of WebRTC based application on Browserstack on different browser combinations based on user selection as follows:
 
-| User Selection  | Description  |
-| ------------ | ------------ |
-| 1  | Run WebRTC test on Google Chrome and Firefox Browser  |
-| 2 |  Run WebRTC test on Edge and Safari Browser  |
-| 3  | Run WebRTC test on Android and iOS |
+| User Selection | Description                                          |
+| -------------- | ---------------------------------------------------- |
+| 1              | Run WebRTC test on Google Chrome and Firefox Browser |
+| 2              | Run WebRTC test on Edge and Safari Browser           |
+| 3              | Run WebRTC test on Android and iOS                   |
 
 ---
 
-## BrowserStack
+## <img src="https://avatars.githubusercontent.com/u/1119453?s=200&v=4"  width="40"> BrowserStack
 
-[BrowserStack](https://browserstack.com) provides instant access to 2,000+ real mobile devices and browsers on a highly reliable cloud infrastructure that effortlessly scales as testing needs grow.
+[BrowserStack](https://browserstack.com) provides instant access to 3,000+ real mobile devices and browsers on a highly reliable cloud infrastructure that effortlessly scales as testing needs grow.
 
 ### Prerequisites
 
@@ -52,27 +49,29 @@ This repository showcases running of WebRTC based application on Browserstack on
   export BROWSERSTACK_USERNAME=<browserstack-username> &&
   export BROWSERSTACK_ACCESS_KEY=<browserstack-access-key>
   ```
+
 * For Windows:
-  * For CMD:
-   
-      ``` shell
-      set BROWSERSTACK_USERNAME=<browserstack-username>
-      set BROWSERSTACK_ACCESS_KEY=<browserstack-access-key>
-      ```
-      
-  * For Powershell(Setting Environment Variable Persistently):
-      
-      ``` shell
-      [System.Environment]::SetEnvironmentVariable('BROWSERSTACK_USERNAME','<browserstack-username>')
-      [System.Environment]::SetEnvironmentVariable('BROWSERSTACK_ACCESS_KEY','<browserstack-access-key>')
-      ```
+
+  - For CMD:
+
+    ```shell
+    set BROWSERSTACK_USERNAME=<browserstack-username>
+    set BROWSERSTACK_ACCESS_KEY=<browserstack-access-key>
+    ```
+
+  - For Powershell(Setting Environment Variable Persistently):
+    ```shell
+    [System.Environment]::SetEnvironmentVariable('BROWSERSTACK_USERNAME','<browserstack-username>')
+    [System.Environment]::SetEnvironmentVariable('BROWSERSTACK_ACCESS_KEY','<browserstack-access-key>')
+    ```
 
   Alternatively, you can also hardcode USERNAME and ACCESS_KEY in the [ WebRTCTestRunner.java](src/main/java/WebRTCTestRunner.java) file.
 
 ## Running Your Tests
-* To run WebRTC test on Browserstack, open terminal/CMD/Powershell and type:
-  ``` shell
+
+- To run WebRTC test on Browserstack, open terminal/CMD/Powershell and type:
+  ```shell
   mvn exec:java
   ```
-* You would be prompted to enter input(1,2,3) which would execute the WebRTC test on Browser combinations as mentioned [ here ](#browser-combinations-in-this-repository)
-* Login to Browserstack and you can see your tests successfully executed.
+- You would be prompted to enter input(1,2,3) which would execute the WebRTC test on Browser combinations as mentioned [ here ](#browser-combinations-in-this-repository)
+- Login to Browserstack and you can see your tests successfully executed.

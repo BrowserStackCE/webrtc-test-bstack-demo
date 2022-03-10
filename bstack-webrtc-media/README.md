@@ -1,6 +1,6 @@
 ![Logo](https://www.browserstack.com/images/static/header-logo.jpg)
 
-# <h1 align="center"> :zap: BrowserStack <a href="https://webrtc.org/getting-started/testing"> <img src="https://www.gstatic.com/devrel-devsite/prod/v328e217e4b751c25f062fe5c7682def5a7a55ca15e8bc2c276cdea0c86a8ee13/webrtc/images/lockup.svg"  width="125"/> </a> Testing :zap:</h1>
+# <h1 align="center"> :zap: BrowserStack <a href="https://webrtc.org/getting-started/testing"> <img src="https://www.gstatic.com/devrel-devsite/prod/v328e217e4b751c25f062fe5c7682def5a7a55ca15e8bc2c276cdea0c86a8ee13/webrtc/images/lockup.svg"  width="125"/> </a> Media Testing :zap:</h1>
 
 This repository showcases automated testing of WebRTC-based web application on both Desktop and Mobile Browsers by executing the tests on Browserstack.
 
