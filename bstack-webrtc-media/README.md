@@ -33,7 +33,6 @@ This repository showcases running of WebRTC based application on Browserstack on
 | 3              | Run WebRTC test on Edge Browser               |
 | 4              | Run WebRTC test on Safari Browser             |
 | 5              | Run WebRTC test on Chrome Browser for Android |
-| 6              | Run WebRTC test on Safari Browser for iOS     |
 
 ---
 
@@ -68,7 +67,7 @@ This repository showcases running of WebRTC based application on Browserstack on
     [System.Environment]::SetEnvironmentVariable('BROWSERSTACK_ACCESS_KEY','<browserstack-access-key>')
     ```
 
-  Alternatively, you can also hardcode USERNAME and ACCESS_KEY in the [ WebRTCTestRunner.java](src/main/java/WebRTCTestRunner.java) file.
+  Alternatively, you can also hardcode USERNAME and ACCESS_KEY in the [ WebRTCConf.java](src/main/java/WebRTCConf.java) file.
 
 ## Running Your Tests
 
@@ -76,5 +75,5 @@ This repository showcases running of WebRTC based application on Browserstack on
   ```shell
   mvn exec:java
   ```
-- You would be prompted to enter input(1,2,3,4,5,6) which would execute the WebRTC test on Browser combinations as mentioned [ here ](#browser-combinations-in-this-repository)
+- You would be prompted to enter input(1,2,3,4,5) which would execute the WebRTC test on Browser combinations as mentioned [ here ](#browser-combination-in-this-repository)
 - Login to Browserstack and you can see your tests successfully executed.
