@@ -6,3 +6,7 @@ src/test
 .project
 .classpath
 .DS_Store
+
+bstack-webrtc-media/src/main/java/caps.java
+bstack-webrtc-media/.vscode/*
+bstack-webrtc-media/target/*
