@@ -10,3 +10,4 @@ src/test
 bstack-webrtc-media/src/main/java/caps.java
 bstack-webrtc-media/.vscode/*
 bstack-webrtc-media/target/*
+bstack-webrtc-conferencing/*

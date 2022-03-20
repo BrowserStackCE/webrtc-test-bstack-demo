@@ -5,8 +5,6 @@ import java.util.HashMap;
 import com.browserstack.local.Local;
 
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.ios.IOSDriver;
-import io.appium.java_client.ios.IOSElement;
 
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
@@ -19,7 +17,6 @@ public class WebRTCTestRunner implements Runnable {
     public static final String HUB_URL = "https://hub-cloud.browserstack.com/wd/hub";
     WebDriver driver = null;
     AndroidDriver<WebElement> androidDriver = null;
-    IOSDriver<IOSElement> iOSDriver = null;
     String appRTCURL = "https://webrtc.github.io/samples/src/content/devices/input-output/";
     String deviceType = null;
     String userSelection = null;
@@ -64,7 +61,7 @@ public class WebRTCTestRunner implements Runnable {
                 driver.get(appRTCURL);
                 Thread.sleep(5000);
 
-            } else if (deviceType.equalsIgnoreCase("android")) {
+            } else {
                 androidDriver = new AndroidDriver<WebElement>(new URL(HUB_URL), options);
                 if (userSelection.equalsIgnoreCase("5.3")) {
                     System.out.println("/data/local/tmp/" + Config.getCustomVideoFile());
@@ -77,10 +74,6 @@ public class WebRTCTestRunner implements Runnable {
 
                 }
                 androidDriver.get(appRTCURL);
-                Thread.sleep(5000);
-            } else {
-                iOSDriver = new IOSDriver<IOSElement>(new URL(HUB_URL), options);
-                iOSDriver.get(appRTCURL);
                 Thread.sleep(5000);
             }
             System.out.println("Test successfully executed!");
@@ -100,10 +93,6 @@ public class WebRTCTestRunner implements Runnable {
             if (androidDriver != null) {
 
                 androidDriver.quit();
-            }
-            if (iOSDriver != null) {
-
-                iOSDriver.quit();
             }
         }
     }

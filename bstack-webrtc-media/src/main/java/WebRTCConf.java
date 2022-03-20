@@ -61,8 +61,7 @@ public class WebRTCConf {
                     "--use-fake-device-for-media-stream", "--use-fake-ui-for-media-stream",
                     "--use-file-for-fake-video-capture=C:\\Users\\hello\\Downloads\\" +
                             Config.getCustomVideoFile(),
-                    "--use-file-for-fake-audio-capture=C:\\Users\\hello\\Downloads\\" +
-                            Config.getCustomAudioFile());
+                    "--use-file-for-fake-audio-capture=C:\\Users\\hello\\Documents\\audio\\250Hz_44100Hz_16bit_05sec.wav");
             options.setCapability("browserstack.local", "true");
             options.setCapability("name", "WebRTC with Custom media");
         }
@@ -98,7 +97,7 @@ public class WebRTCConf {
             options.addArguments(
                     "--use-fake-device-for-media-stream", "--use-fake-ui-for-media-stream",
                     "--use-file-for-fake-video-capture=C:\\Users\\hello\\Downloads\\" + Config.getCustomVideoFile(),
-                    "--use-file-for-fake-audio-capture=C:\\Users\\hello\\Downloads\\" + Config.getCustomAudioFile());
+                    "--use-file-for-fake-audio-capture=C:\\Users\\hello\\Documents\\audio\\250Hz_44100Hz_16bit_05sec.wav");
             options.setCapability("name", "WebRTC with Custom media");
             options.setCapability("browserstack.local", "true");
 
@@ -125,24 +124,7 @@ public class WebRTCConf {
         options.setCapability("os", "OS X");
         options.setCapability("os_version", "Big Sur");
         options.setCapability("build", "WebRTC Testing - Safari");
-        options.setCapability("name", "WebRTC with Fake Media");
-        MutableCapabilities commonCaps = getCommonCaps();
-        options.merge(commonCaps);
-
-        return options;
-    }
-
-    public static MutableCapabilities getiOSConfiguration(final String userSelection) {
-
-        SafariOptions options = new SafariOptions();
-        options.setUseTechnologyPreview(true);
-
-        options.setCapability("device", "iPhone 12");
-        options.setCapability("real_mobile", "true");
-        options.setCapability("os_version", "14");
-        options.setCapability("autoAcceptAlerts", "true");
-        options.setCapability("build", "WebRTC Testing - iOS");
-        options.setCapability("name", "WebRTC with Fake media");
+        options.setCapability("name", "WebRTC with Safari Browser - Fake Media");
         MutableCapabilities commonCaps = getCommonCaps();
         options.merge(commonCaps);
 
@@ -200,7 +182,6 @@ public class WebRTCConf {
             System.out.println("3 : Press 3 to initiate WebRTC test on Edge Browser");
             System.out.println("4 : Press 4 to initiate WebRTC test on Safari Browser");
             System.out.println("5 : Press 5 to initiate WebRTC test on Chrome Browser for Android ");
-            System.out.println("6 : Press 6 to initiate WebRTC test on Safari Browser for iOS");
             String userSelection = sc.next();
 
             switch (userSelection) {
@@ -270,16 +251,6 @@ public class WebRTCConf {
                         // Creating a session on Android Mobile Browser.
                         createSession(AndroidConfiguration, "android", AndroidSelections[i]);
                     }
-                    Thread.sleep(30000);
-                    break;
-
-                case "6":
-                    System.out.println("Executing tests on iOS Browser");
-                    // Creating capabilities for iOS Mobile Browser.
-                    MutableCapabilities iOSConfiguration = getiOSConfiguration(userSelection);
-                    // // Creating a session on iOS Mobile Browser.
-                    createSession(iOSConfiguration, "ios", userSelection);
-
                     Thread.sleep(30000);
                     break;
 
