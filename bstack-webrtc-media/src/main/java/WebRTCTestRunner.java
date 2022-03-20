@@ -60,14 +60,10 @@ public class WebRTCTestRunner implements Runnable {
                 }
                 driver.get(appRTCURL);
                 Thread.sleep(5000);
-
+                System.out.println("Test successfully executed!");
             } else {
                 androidDriver = new AndroidDriver<WebElement>(new URL(HUB_URL), options);
                 if (userSelection.equalsIgnoreCase("5.3")) {
-                    System.out.println("/data/local/tmp/" + Config.getCustomVideoFile());
-                    System.out.println(Config.getLocalFolderPath()
-                            + "/" + Config.getCustomVideoFile());
-
                     androidDriver.pushFile("/data/local/tmp/" + Config.getCustomVideoFile(),
                             new File(Config.getLocalFolderPath()
                                     + "/" + Config.getCustomVideoFile()));
@@ -75,8 +71,9 @@ public class WebRTCTestRunner implements Runnable {
                 }
                 androidDriver.get(appRTCURL);
                 Thread.sleep(5000);
+                System.out.println("Test successfully executed!");
             }
-            System.out.println("Test successfully executed!");
+
         } catch (Exception ex) {
             System.out.println("Test execution failed!");
             ex.printStackTrace();
