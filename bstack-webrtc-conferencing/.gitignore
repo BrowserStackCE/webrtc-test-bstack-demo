@@ -1,8 +1,0 @@
-.settings/
-target/
-src/test
-.vscode
-.idea
-.project
-.classpath
-.DS_Store
