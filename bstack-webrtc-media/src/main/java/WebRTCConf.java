@@ -45,17 +45,17 @@ public class WebRTCConf {
     public static MutableCapabilities getChromeConfiguration(final String userSelection) throws Exception {
         ChromeOptions options = new ChromeOptions();
 
-        if (userSelection.equalsIgnoreCase("1.1")) {
+        if (userSelection.equalsIgnoreCase("Chrome_FakeMedia")) {
             options.addArguments(
                     "--use-fake-device-for-media-stream", "--use-fake-ui-for-media-stream");
             options.setCapability("name", "WebRTC with Fake media");
-        } else if (userSelection.equalsIgnoreCase("1.2")) {
+        } else if (userSelection.equalsIgnoreCase("Chrome_PreExistingMedia")) {
             options.addArguments(
                     "--use-fake-device-for-media-stream", "--use-fake-ui-for-media-stream",
                     "--use-file-for-fake-video-capture=C:\\Users\\hello\\Documents\\video\\sample_mjpeg.mjpeg",
                     "--use-file-for-fake-audio-capture=C:\\Users\\hello\\Documents\\audio\\250Hz_44100Hz_16bit_05sec.wav");
             options.setCapability("name", "WebRTC with Pre-uploaded media");
-        } else if (userSelection.equalsIgnoreCase("1.3")) {
+        } else if (userSelection.equalsIgnoreCase("Chrome_UserMedia")) {
 
             options.addArguments(
                     "--use-fake-device-for-media-stream", "--use-fake-ui-for-media-stream",
@@ -83,17 +83,17 @@ public class WebRTCConf {
 
         ChromeOptions options = new ChromeOptions();
 
-        if (userSelection.equalsIgnoreCase("3.1")) {
+        if (userSelection.equalsIgnoreCase("Edge_FakeMedia")) {
             options.addArguments(
                     "--use-fake-device-for-media-stream", "--use-fake-ui-for-media-stream");
             options.setCapability("name", "WebRTC with Fake media");
-        } else if (userSelection.equalsIgnoreCase("3.2")) {
+        } else if (userSelection.equalsIgnoreCase("Edge_PreExistingMedia")) {
             options.addArguments(
                     "--use-fake-device-for-media-stream", "--use-fake-ui-for-media-stream",
                     "--use-file-for-fake-video-capture=C:\\Users\\hello\\Documents\\video\\sample_mjpeg.mjpeg",
                     "--use-file-for-fake-audio-capture=C:\\Users\\hello\\Documents\\audio\\250Hz_44100Hz_16bit_05sec.wav");
             options.setCapability("name", "WebRTC with Pre-uploaded media");
-        } else if (userSelection.equalsIgnoreCase("3.3")) {
+        } else if (userSelection.equalsIgnoreCase("Edge_UserMedia")) {
             options.addArguments(
                     "--use-fake-device-for-media-stream", "--use-fake-ui-for-media-stream",
                     "--use-file-for-fake-video-capture=C:\\Users\\hello\\Downloads\\" + Config.getCustomVideoFile(),
@@ -135,11 +135,11 @@ public class WebRTCConf {
 
         ChromeOptions options = new ChromeOptions();
 
-        if (userSelection.equalsIgnoreCase("5.1")) {
+        if (userSelection.equalsIgnoreCase("Android_FakeMedia")) {
             options.addArguments(
                     "--use-fake-device-for-media-stream", "--use-fake-ui-for-media-stream");
             options.setCapability("name", "WebRTC with Fake media");
-        } else if (userSelection.equalsIgnoreCase("5.3")) {
+        } else if (userSelection.equalsIgnoreCase("Android_UserMedia")) {
             options.addArguments(
                     "--use-fake-device-for-media-stream", "--use-fake-ui-for-media-stream",
                     "--use-file-for-fake-video-capture=/data/local/tmp/" + Config.getCustomVideoFile(),
@@ -186,7 +186,7 @@ public class WebRTCConf {
 
             switch (userSelection) {
                 case "1":
-                    String[] selections = { "1.1", "1.2", "1.3" };
+                    String[] selections = { "Chrome_FakeMedia", "Chrome_PreExistingMedia", "Chrome_UserMedia" };
 
                     System.out.println("Executing tests on Chrome Browsers");
 
@@ -198,25 +198,21 @@ public class WebRTCConf {
                         createSession(chromeConfiguration, "browser", selections[i]);
                     }
 
-                    Thread.sleep(30000);
-
                     break;
 
                 case "2":
                     System.out.println("Executing tests on Firefox Browser");
                     // Creating capabilities for FireFox Browser.
-                    MutableCapabilities fireFoxConfiguration = getFireFoxConfiguration("2.1");
+                    MutableCapabilities fireFoxConfiguration = getFireFoxConfiguration("Firefox_FakeMedia");
 
                     // Creating a session on Firefox Browser.
-                    createSession(fireFoxConfiguration, "browser", "2.1");
-
-                    Thread.sleep(30000);
+                    createSession(fireFoxConfiguration, "browser", "Firefox_FakeMedia");
 
                     break;
 
                 case "3":
 
-                    String[] EdgeSelections = { "3.1", "3.2", "3.3" };
+                    String[] EdgeSelections = { "Edge_FakeMedia", "Edge_PreExistingMedia", "Edge_UserMedia" };
                     System.out.println("Executing tests on Edge Browsers");
 
                     for (int i = 0; i < EdgeSelections.length; i++) {
@@ -227,7 +223,6 @@ public class WebRTCConf {
                         createSession(edgeConfiguration, "browser", EdgeSelections[i]);
                     }
 
-                    Thread.sleep(30000);
                     break;
 
                 case "4":
@@ -237,11 +232,10 @@ public class WebRTCConf {
                     // // Creating a session on Safari Browser.
                     createSession(safariConfiguration, "browser", userSelection);
 
-                    Thread.sleep(30000);
                     break;
 
                 case "5":
-                    String[] AndroidSelections = { "5.1", "5.3" };
+                    String[] AndroidSelections = { "Android_FakeMedia", "Android_UserMedia" };
 
                     System.out.println("Executing tests on Android Browser");
                     for (int i = 0; i < AndroidSelections.length; i++) {
@@ -251,7 +245,7 @@ public class WebRTCConf {
                         // Creating a session on Android Mobile Browser.
                         createSession(AndroidConfiguration, "android", AndroidSelections[i]);
                     }
-                    Thread.sleep(30000);
+
                     break;
 
                 default:

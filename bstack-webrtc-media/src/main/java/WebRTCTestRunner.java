@@ -36,7 +36,7 @@ public class WebRTCTestRunner implements Runnable {
             // Creating Remote WebDriver based on the capabilites defined in
             // WebRTCConf.java.
 
-            if (userSelection.equalsIgnoreCase("1.3") || userSelection.equalsIgnoreCase("3.3")) {
+            if (userSelection.equalsIgnoreCase("Chrome_UserMedia") || userSelection.equalsIgnoreCase("3.3")) {
 
                 HashMap<String, String> bsLocalArgs = new HashMap<String, String>();
                 bsLocalArgs.put("key", System.getenv("BROWSERSTACK_ACCESS_KEY"));
@@ -47,14 +47,11 @@ public class WebRTCTestRunner implements Runnable {
                 driver = new RemoteWebDriver(new URL(HUB_URL), options);
                 driver.manage().window().maximize();
 
-                if (userSelection.equalsIgnoreCase("1.3") || userSelection.equalsIgnoreCase("3.3")) {
+                if (userSelection.equalsIgnoreCase("Chrome_UserMedia") || userSelection.equalsIgnoreCase("3.3")) {
 
                     driver.get("http://" + System.getenv("BROWSERSTACK_USERNAME") +
                             ".browserstack.com/"
                             + Config.getCustomVideoFile());
-                    driver.get("http://" + System.getenv("BROWSERSTACK_USERNAME") +
-                            ".browserstack.com/"
-                            + Config.getCustomAudioFile());
 
                     ((RemoteWebDriver) driver).setFileDetector(new LocalFileDetector());
                 }
