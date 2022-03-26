@@ -67,7 +67,7 @@ This repository showcases running of WebRTC based application on Browserstack on
     [System.Environment]::SetEnvironmentVariable('BROWSERSTACK_ACCESS_KEY','<browserstack-access-key>')
     ```
 
-  Alternatively, you can also hardcode USERNAME and ACCESS_KEY in the [ WebRTCConf.java](src/main/java/WebRTCConf.java) file.
+  Alternatively, you can also hardcode USERNAME and ACCESS_KEY in the [ WebRTCConf.java]bstack-webrtc-media/(src/main/java/WebRTCConf.java) file.
 
 ## Running Your Tests
 
